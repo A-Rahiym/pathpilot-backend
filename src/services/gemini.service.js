@@ -1,9 +1,9 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 class GeminiService {
   constructor() {
     this.genAI = new GoogleGenerativeAI(process.env.GOOGLE_GEMINI_API_KEY);
-    this.model = this.genAI.getGenerativeModel({ model: 'gemini-pro' });
+    this.model = this.genAI.getGenerativeModel({ model: "gemini-pro" });
   }
 
   async processCommand(text) {
@@ -14,21 +14,19 @@ class GeminiService {
 4. Any special requests (avoid highways, wheelchair accessible, etc.)
 
 Command: "${text}"
-
 Respond in JSON format with keys: destination, preferences, action, specialRequests`;
 
     const result = await this.model.generateContent(prompt);
     const responseText = result.response.text();
-
     try {
       return JSON.parse(responseText);
     } catch (e) {
       return {
         destination: null,
         preferences: [],
-        action: 'process',
+        action: "process",
         specialRequests: null,
-        rawResponse: responseText
+        rawResponse: responseText,
       };
     }
   }
@@ -47,7 +45,7 @@ Format as an array of instruction objects with: step, instruction, distance, dur
     } catch (e) {
       return {
         raw: responseText,
-        instructions: []
+        instructions: [],
       };
     }
   }

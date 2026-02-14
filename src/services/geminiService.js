@@ -14,7 +14,7 @@ class GeminiService {
   async parseIntent(transcribedText) {
     try {
       const model = this.genAI.getGenerativeModel({ 
-        model: 'gemini-2.0-flash-latest',
+        model: 'gemini-2.5-flash',
         generationConfig: {
           temperature: 0.3,
           responseMimeType: "application/json"
@@ -57,7 +57,7 @@ Examples:
   async analyzeImage(imageBuffer) {
     try {
       const model = this.genAI.getGenerativeModel({ 
-        model: 'gemini-2.0-flash-exp',
+        model: 'gemini-2.5-flash',
         generationConfig: {
           temperature: 0.4,
           responseMimeType: "application/json"

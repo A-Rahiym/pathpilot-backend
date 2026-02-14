@@ -7,7 +7,7 @@ const config = {
   nodeEnv: process.env.NODE_ENV || 'development',
   
   // Google API Keys
-  geminiApiKey: process.env.GOOGLE_GEMINI_API_KEY,
+  geminiApiKey: 'AIzaSyByCJS4SOwM19p41WL9WNBUp2tbs8Z_4tY',
   mapsApiKey: process.env.GOOGLE_MAPS_API_KEY,
   
   // CORS

@@ -44,7 +44,6 @@ class MapsService {
    * @returns {Promise<Object>} Address information
    */
   async reverseGeocode(lat, lng) {
-    console.log("API KEY:", process.env.GOOGLE_MAPS_API_KEY);
     try {
       const response = await axios.get(`${this.baseUrl}/geocode/json`, {
         params: {
