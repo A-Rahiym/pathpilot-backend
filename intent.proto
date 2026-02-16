@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package intent;
+
+service IntentService {
+  // Parse a voice command to extract navigation intent
+  rpc ParseIntent (ParseIntentRequest) returns (ParseIntentResponse) {}
+}
+
+message ParseIntentRequest {
+  string transcribed_text = 1;
+}
+
+message ParseIntentResponse {
+  string intent = 1; // "navigate" | "location" | "nearby" | "help" | "stop_navigation"
+  optional string destination = 2;
+  optional string category = 3;
+  float confidence = 4;
+  string original_text = 5;
+  string timestamp = 6;
+}
